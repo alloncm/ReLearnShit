@@ -20,13 +20,16 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include<vector>
+#include"Entity.h"
+
 
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	x(0),
-	y(0)
+	transformer(gfx),
+	camera(transformer)
 {
 }
 
@@ -40,11 +43,11 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	x = wnd.mouse.GetPosX(); 
-	y = wnd.mouse.GetPosY();
 }
 
 void Game::ComposeFrame()
 {
-	gfx.DrawLine({ 100,100 }, { x,y });
+	std::vector<Vec2_<float>> v = { {0,0},{50,50},{0,50} };
+	Entity t(v, Colors::Red);
+	camera.Draw(t.GetDrawable());
 }

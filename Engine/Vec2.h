@@ -16,6 +16,14 @@ public:
 		x = x1;
 		y = y1;
 	}
+
+	Vec2_<T>& operator=(const Vec2_<T>& rhs)
+	{
+		x = rhs.x;
+		y = rhs.y;
+		return *this;
+	}
+	 
 	bool operator==(const Vec2_ <T> &v)const
 	{
 		return this->x == v.x&&this->y == v.y;
@@ -32,6 +40,12 @@ public:
 	{
 		return Vec2_(x - v.x, y - v.y);
 	}
+
+	Vec2_<T> operator-()
+	{
+		return Vec2_<T>(-x, -y);
+	}
+
 	Vec2_<T>& operator+=(const Vec2_<T>&v)
 	{
 		x += v.x;

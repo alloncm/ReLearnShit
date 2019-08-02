@@ -23,6 +23,8 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include"CoordinateTransformer.h"
+#include"Camera.h"
 
 class Game
 {
@@ -42,7 +44,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	int x;
-	int y;
+	CoordinateTransformer transformer;
+	Camera camera;
 	/********************************/
 };

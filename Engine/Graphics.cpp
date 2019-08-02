@@ -327,7 +327,10 @@ void Graphics::DrawLine(const Vec2_<float>& point1, const Vec2_<float>& point2, 
 		for (int x = startX; x < endX; x++)
 		{
 			int y = (int)((m*x) + b);
-			PutPixel(x, y, c);
+			if (x >= 0 && x < ScreenWidth&&y >= 0 && y < ScreenHeight)
+			{
+				PutPixel(x, y, c);
+			}
 		}
 	}
 	else
@@ -339,12 +342,15 @@ void Graphics::DrawLine(const Vec2_<float>& point1, const Vec2_<float>& point2, 
 		for (int y = startY; y < endY; y++)
 		{
 			int x = (int)((m*y) + b);
-			PutPixel(x, y, c);
+			if (x >= 0 && x < ScreenWidth&&y >= 0 && y < ScreenHeight)
+			{
+				PutPixel(x, y, c);
+			}
 		}
 	}
 }
 
-void Graphics::DrawClosePolyLine(const std::vector<Vec2_<float>>& verticies, Color c)
+void Graphics::DrawClosePolyline(const std::vector<Vec2_<float>>& verticies, Color c)
 {
 	for (auto i = verticies.begin(); i != std::prev(verticies.end()); i++)
 	{
