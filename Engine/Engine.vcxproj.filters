@@ -63,12 +63,6 @@
     <ClInclude Include="Drawable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Plank.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FrameTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
