@@ -41,7 +41,7 @@ public:
 		return Vec2_(x - v.x, y - v.y);
 	}
 
-	Vec2_<T> operator-()
+	Vec2_<T> operator-()const 
 	{
 		return Vec2_<T>(-x, -y);
 	}
@@ -72,6 +72,24 @@ public:
 		y += v;
 		return *this;
 	}
+
+	Vec2_<T>& Rotate(T angle)
+	{
+		T cosine = cos(angle);
+		T sine = sin(angle);
+		T newX = x*cosine - y*sine;
+		y = x*sine + y*cosine;
+		x = newX;
+		return *this;
+	}
+
+	Vec2_<T> GetRotated(float angle)
+	{
+		T cosine = cos(angle);
+		T sine = sin(angle);
+		return Vec2_<T>(x*cosine - y*sine, x*sine + y*cosine);
+	}
+
 	Vec2_<T>& operator-= (T v)
 	{
 		x -= v;

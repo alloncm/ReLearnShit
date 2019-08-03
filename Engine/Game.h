@@ -25,6 +25,9 @@
 #include "Graphics.h"
 #include"CoordinateTransformer.h"
 #include"Camera.h"
+#include"Plank.h"
+#include"Ball.h"
+#include"FrameTime.h"
 
 class Game
 {
@@ -46,5 +49,7 @@ private:
 	/*  User Variables              */
 	CoordinateTransformer transformer;
 	Camera camera;
+	float time;
+	FrameTimer ft;
 	/********************************/
 };

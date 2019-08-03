@@ -11,7 +11,8 @@ public:
 		_model(std::move(model)),
 		_position(pos),
 		_scale(1.0f),
-		_color(c)
+		_color(c),
+		_rotation(0.0f)
 	{}
 	const Vec2& GetPos()const
 	{
@@ -28,7 +29,7 @@ public:
 		_position += offset;
 	}
 
-	float GetScale()
+	float GetScale()const
 	{
 		return _scale;
 	}
@@ -38,17 +39,35 @@ public:
 		_scale = scale;
 	}
 
+	void SetRotation(float rot)
+	{
+		_rotation = rot;
+	}
+
+	float GetRotation()const 
+	{
+		return _rotation;
+	}
+
 	Drawable GetDrawable()const
 	{
 		Drawable d(_model, _color);
 		d.Scale(_scale);
+		d.Rotate(_rotation);
 		d.Traslate(_position);
 		return d;
+	}
+
+protected:
+	void SetModel(std::vector<Vec2> polylines)
+	{
+		_model = polylines;
 	}
 
 private:
 	Color _color;
 	float _scale;
+	float _rotation;
 	Vec2 _position;
 	std::vector<Vec2> _model;
 };

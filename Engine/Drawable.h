@@ -12,7 +12,8 @@ public:
 		_scaleX(1.0f),
 		_scaleY(1.0f),
 		_translation({0.0f,0.0f}),
-		_color(c)
+		_color(c),
+		_rotation(0.0f)
 	{}
 	void Traslate(const Vec2& translation)
 	{
@@ -38,6 +39,12 @@ public:
 		_translation.y *= y;
 	}
 
+	void Rotate(float angle)
+	{
+		_rotation += angle;
+		_translation.Rotate(angle);
+	}
+
 	void Render(Graphics& gfx)
 	{
 		auto poly = _model;
@@ -45,6 +52,7 @@ public:
 		{
 			v.x *= _scaleX;
 			v.y *= _scaleY;
+			v.Rotate(_rotation);
 			v += _translation;
 		}
 
@@ -55,5 +63,6 @@ private:
 	Vec2 _translation;
 	float _scaleX;
 	float _scaleY;
+	float _rotation;
 	std::vector<Vec2> _model;
 };

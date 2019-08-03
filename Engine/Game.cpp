@@ -24,12 +24,14 @@
 #include"Entity.h"
 
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd ),
+	wnd(wnd),
+	gfx(wnd),
 	transformer(gfx),
-	camera(transformer)
+	camera(transformer),
+	time(0.0f),
+	ft()
 {
 }
 
@@ -43,11 +45,15 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	
 }
 
 void Game::ComposeFrame()
 {
-	std::vector<Vec2_<float>> v = { {0,0},{50,50},{0,50} };
-	Entity t(v, Colors::Red);
+	const float dt = ft.Mark();
+	std::vector<Vec2> trig = { { -50,-50 },{ -50,50 },{ 150,150 },{50,-50} };
+	Entity t(trig, Colors::White, { 100,100 });
+	time += dt;
+	t.SetRotation(time);
 	camera.Draw(t.GetDrawable());
 }
