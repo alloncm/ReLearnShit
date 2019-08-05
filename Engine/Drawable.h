@@ -15,7 +15,7 @@ public:
 	
 	void ApplyTransforamtion(const Mat3_<float>& mat)
 	{
-		_mat = _mat*mat;
+		_mat = mat*_mat;
 	}
 
 	void Render(Graphics& gfx)

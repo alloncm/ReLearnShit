@@ -13,7 +13,9 @@ public:
 	void Draw(Drawable& drawable) const
 	{
 		const Vec2_<float> offset(Graphics::ScreenWidth / 2, Graphics::ScreenHeight / 2);
-		drawable.ApplyTransforamtion(Mat3::Translation(offset)*Mat3::ScaleIndependent(1.0f, -1.0f));
+		drawable.ApplyTransforamtion(
+			Mat3::Translation(offset)*
+			Mat3::ScaleIndependent(1.0f, -1.0f));
 		drawable.Render(gfx);
 	}
 

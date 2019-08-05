@@ -35,7 +35,10 @@ public:
 	}
 	void Draw(Drawable& drawable)
 	{
-		drawable.ApplyTransforamtion(Mat3::Scale(_scale)*Mat3::Translation(-_position));
+		drawable.ApplyTransforamtion(
+			Mat3::Scale(_scale)*
+			Mat3::Translation(-_position)
+		);
 		_tranformer.Draw(drawable);
 	}	
 

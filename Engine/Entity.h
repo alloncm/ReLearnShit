@@ -55,8 +55,8 @@ public:
 		Drawable d(_model, _color);
 		d.ApplyTransforamtion(
 			Mat3::Translation(_position.x, _position.y)*
-			Mat3::Rotation(_rotation)*
-			Mat3::Scale(_scale)
+			Mat3::Scale(_scale)*
+			Mat3::Rotation(_rotation)
 		);
 		return d;
 	}
