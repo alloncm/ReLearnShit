@@ -2,6 +2,7 @@
 #include<vector>
 #include"Vec2.h"
 #include"Drawable.h"
+#include"Mat3.h"
 
 class Entity
 {
@@ -52,9 +53,11 @@ public:
 	Drawable GetDrawable()const
 	{
 		Drawable d(_model, _color);
-		d.Scale(_scale);
-		d.Rotate(_rotation);
-		d.Traslate(_position);
+		d.ApplyTransforamtion(
+			Mat3::Translation(_position.x, _position.y)*
+			Mat3::Rotation(_rotation)*
+			Mat3::Scale(_scale)
+		);
 		return d;
 	}
 

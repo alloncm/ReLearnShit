@@ -25,10 +25,8 @@
 #include "Graphics.h"
 #include"CoordinateTransformer.h"
 #include"Camera.h"
-#include"Plank.h"
-#include"Ball.h"
 #include"FrameTime.h"
-
+#include"Mat3.h"
 class Game
 {
 public:
