@@ -51,7 +51,7 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	const float dt = ft.Mark();
-	std::vector<Vec2> trig = { { -50,-50 },{ -50,50 },{ 150,150 },{50,-50} };
+	std::vector<Vec2> trig = { { -50,-50 },{ -50,50 },{ 50,50 },{50,-50} };
 	Entity t(trig, Colors::White, { 100,100 });
 	time += dt;
 	t.SetRotation(time);
